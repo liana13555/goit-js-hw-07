@@ -17,15 +17,16 @@
 
 
 const inputEl = document.querySelector('#validation-input');
-const wordLength = Number(inputEl.dataset.length);
-
-inputEl.addEventListener('blur', onInputBlur);
+const wordLength = inputEl.dataset.length;
 
 function onInputBlur(event) {
-    if (wordLength === event.currentTarget.value.length) {
+    if (wordLength == event.currentTarget.value.length) {
         inputEl.classList.add('valid');
         inputEl.classList.remove('invalid');
-    } if (wordLength !== event.currentTarget.value.length) {
+    } else if (wordLength != event.currentTarget.value.length) {
         inputEl.classList.add('invalid');
+        inputEl.classList.remove('valid');
     }       
 };
+
+inputEl.addEventListener('blur', onInputBlur);

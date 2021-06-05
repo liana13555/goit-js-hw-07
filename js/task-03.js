@@ -25,17 +25,10 @@ const images = [
   },
 ];
 
-const makeItems = images => images.map(item => {
-  const itemEl = document.createElement('li');
-  const imageEl = document.createElement('img');
-  imageEl.src = item.url;
-  imageEl.alt = item.alt;
-  imageEl.width = 320;
-  itemEl.appendChild(imageEl);
-        
-  return itemEl;
-});
+const pictures = images.map(
+    ({ url, alt }) =>
+      `<li><img src="${url}" alt="${alt}" width = 320 ></li>`)
+  .join('');
 
-const allImages = makeItems(images);
-const listEl = document.querySelector('#gallery');
-listEl.append(...allImages);
+const listImages = document.querySelector('#gallery');
+listImages.insertAdjacentHTML('afterbegin', pictures);

@@ -12,8 +12,11 @@ const refs = {
 refs.input.addEventListener('input', onInputChange);
 
 function onInputChange(event) {
-    console.log(event.currentTarget.value);
-    refs.nameTitle.textContent = event.currentTarget.value;
+    if (event.currentTarget.value === '') {
+        refs.nameTitle.textContent = 'незнакомец';
+    } else {
+      refs.nameTitle.textContent = event.currentTarget.value;  
+    } 
 }
 
 // 2 Решение
@@ -21,5 +24,9 @@ function onInputChange(event) {
 
 // input.addEventListener('input', (event) => {
 //     const nameTitle = document.querySelector('#name-output')
-//     nameTitle.textContent = event.currentTarget.value;
+//     if (event.currentTarget.value === '') {
+//         nameTitle.textContent = 'незнакомец';
+//     } else {
+//         nameTitle.textContent = event.currentTarget.value;  
+//     }      
 // });
